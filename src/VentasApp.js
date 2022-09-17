@@ -12,7 +12,7 @@ export default class VentasApp extends Component {
     this.changeClientID = this.changeClientID.bind(this);
 
     this.state = {
-      clientID: 1,
+      clientID: 1, // inicializar el id antes o despues de cargar el componente ?
       form: {
         productList: [],
         creditCard: "",
@@ -75,6 +75,7 @@ export default class VentasApp extends Component {
       });
   }
 
+  // me traigo las tarjetas del cliente ID=1
   listarTarjetasCliente() {
     fetch("http://localhost:1234/tarjetas/1")
       .then((resp) => resp.json())
@@ -85,6 +86,8 @@ export default class VentasApp extends Component {
         });
       });
   }
+
+  // Metodo para listar las tarjetas con un input de ID cliente
 
   // tarjetasCliente(inputValue) {
   //   fetch("http://localhost:1234/tarjetas/" + inputValue)
@@ -134,9 +137,8 @@ export default class VentasApp extends Component {
   }
 
   componentDidUpdate() {
-    // if (this.state.clientID !== "0") {
-    //   this.tarjetasCliente(this.state.clientID);
-    // }
+    // Actualizar las ventas luego de realizar una <<
+    // Cargar las tarjetas del cliente (?)
   }
 
   calcularMonto(e) {
