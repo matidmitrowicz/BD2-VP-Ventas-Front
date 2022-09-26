@@ -12,7 +12,7 @@ export default class VentasApp extends Component {
     this.changeClientID = this.changeClientID.bind(this);
 
     this.state = {
-      clientID: 1, // inicializar el id antes o despues de cargar el componente ?
+      clientID: 1,
       form: {
         productList: [],
         creditCard: "",
@@ -180,6 +180,7 @@ export default class VentasApp extends Component {
           mensaje: json.message,
           monto: "",
         });
+        // this.listarVentas();
       });
   }
 
@@ -206,6 +207,7 @@ export default class VentasApp extends Component {
                 </option>
               ))}
             </select>
+
             {/* <div>
               <label>Cliente ID:</label>
               <input
@@ -275,23 +277,26 @@ export default class VentasApp extends Component {
           <table id="tablacss">
             <thead>
               <tr>
+                <td>Venta N°</td>
                 <td>Fecha</td>
                 <td>Total</td>
-                <td>Tarjeta</td>
+                <td>Entidad Bancaria</td>
+                <td>N° Venta - Año</td>
                 <td>Productos comprados</td>
-                <td>Venta N°</td>
               </tr>
             </thead>
             <tbody>
-              {this.state.ventas.map((venta) => (
-                <tr>
+              {this.state.ventas.map((venta, index) => (
+                <tr key={venta.id}>
+                  <th>{index + 1}</th>
                   <th>{venta.fecha}</th>
                   <th>{venta.total}</th>
                   <th>{venta.tarjeta}</th>
+                  <th>{venta.numYearId}</th>
                   <th>
-                    {venta.productos.map((prodVendido) => (
+                    {venta.productos.map((prodVendido, index) => (
                       <>
-                        <p>
+                        <p key={index}>
                           {prodVendido.descripcion +
                             " " +
                             prodVendido.marca +
@@ -301,7 +306,6 @@ export default class VentasApp extends Component {
                       </>
                     ))}
                   </th>
-                  <th>{venta.id}</th>
                 </tr>
               ))}
             </tbody>

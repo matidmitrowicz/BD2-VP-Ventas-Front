@@ -12,6 +12,9 @@
   padding: 1rem 6rem;
   background-color: ghostwhite;
 }
+#formupdate {
+  display: grid;
+}
 div {
   margin-bottom: 10px;
 }
