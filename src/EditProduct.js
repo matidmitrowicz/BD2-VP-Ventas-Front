@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+// import Alert from "react-bootstrap/Alert";
 
 export default class EditProduct extends Component {
   constructor(props) {
@@ -142,6 +143,7 @@ export default class EditProduct extends Component {
         <div className="message-buttonBox">
           <p className={this.state.result}>{this.state.message}</p>
         </div>
+        <a href="http://localhost:3000">Back to Ventas</a>
       </div>
     );
   }

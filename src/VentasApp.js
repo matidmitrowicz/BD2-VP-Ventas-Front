@@ -120,7 +120,7 @@ export default class VentasApp extends Component {
   }
 
   listarVentas() {
-    fetch("http://localhost:1234/ventas")
+    fetch("http://localhost:1234/ultimasVentas/1")
       .then((resp) => resp.json())
       .then((json) => {
         this.setState({
@@ -138,7 +138,6 @@ export default class VentasApp extends Component {
 
   componentDidUpdate() {
     // Actualizar las ventas luego de realizar una <<
-    // Cargar las tarjetas del cliente (?)
   }
 
   calcularMonto(e) {
@@ -207,6 +206,9 @@ export default class VentasApp extends Component {
                 </option>
               ))}
             </select>
+            <div>
+              <a href="http://localhost:3000/edit">Editar Producto</a>
+            </div>
 
             {/* <div>
               <label>Cliente ID:</label>
@@ -273,7 +275,7 @@ export default class VentasApp extends Component {
           </p>
         </div>
         <div className="ventas">
-          <h4>Ventas</h4>
+          <h4>Ultimas Ventas</h4>
           <table id="tablacss">
             <thead>
               <tr>
